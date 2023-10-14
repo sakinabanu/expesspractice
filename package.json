@@ -1,0 +1,25 @@
+{
+  "name": "expresspractice",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sakinabanu/expresspractice.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sakinabanu/expresspractice/issues"
+  },
+  "homepage": "https://github.com/sakinabanu/expresspractice#readme",
+  "keywords": [],
+  "dependencies": {
+    "config": "^3.3.9",
+    "mongoose": "^7.6.2"
+  }
+}
