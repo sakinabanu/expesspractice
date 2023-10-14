@@ -9,7 +9,9 @@ router.post("/addUsers", async (req, res) => {
     let userData = req.body;
     await userModel.create(userData);
     res.status(200).json({ msg: "User added sucessfully" });
-  } catch (error) {
+  } 
+  catch (error) 
+  {
     res.status(500).json({ error: "Internal Server Error" });
   }
 });
@@ -20,7 +22,9 @@ router.get("/getUsers", async (req, res) => {
   try {
     let allusers = await userModel.find({});
     res.status(200).json(allusers);
-  } catch (error) {
+  } 
+  catch (error)
+   {
     res.status(500).json({ error: "Internal Server Error" });
   }
 });
@@ -72,64 +76,71 @@ router.put("/update/:email", async (req, res) => {
       return res.status(401).json({ msg: "Invalid Email" });
     }
     res.status(200).json(getuseData);
-  } catch (error) {
+  }
+   catch (error) 
+  {
     res.status(500).json({ error: "Internal Server Error" });
   }
 
 });
 
 //update by Id
-
 router.put("/updatebyId/:id", async (req, res) => {
   try {
     let id = req.params.id;
     let update = req.body;
- 
     const updatedUser = await userModel.findByIdAndUpdate(id, update, { new: true });
 
-    if (!updatedUser) {
+    if (!updatedUser) 
+    {
       res.status(401).json({ msg: "ID not Found!" });
     }
     res.status(200).json(updatedUser);
-  } catch (error) {
+  } 
+  catch (error)
+   {
     res.status(500).json({ error: "Internal Server Error" });
   }
 });
 
 //delete by id
-
 router.delete("/deletebyId/:id",async(req,res)=>{
   try {
-    let {id}=req.params
+    let {id}= req.params
   await userModel.findByIdAndDelete(id);
-  if(!id){
+  if(!id)
+  {
     res.status(401).json({ msg: "ID not Found!" });
   }
-  res.status(200).json({msg:"User is deleted successfully"});
-  } catch (error) {
+  res.status(200).json({msg:"User successfully deleted"});
+  } 
+  catch (error)
+   {
     res.status(500).json({ error: "Internal Server Error" });
   }
 })
 
 //delete specific user by email
-
 router.delete("/deleteUser/:email", async (req, res) => {
   try {
     let email = req.params.email;
     await userModel.deleteOne({ email });
-    res.status(200).json({ msg: "User Deleted Sucessfully" });
-  } catch (error) {
+    res.status(200).json({ msg: "User Sucessfully Deleted" });
+  } 
+  catch (error) 
+  {
     res.status(500).json({ error: "Internal Server Error" });
   }
 });
 
 //delete all Users
-
 router.delete("/deleteAll", async (req, res) => {
   try {
     await userModel.deleteMany({});
-    res.status(200).json({ msg: "All Users Deleted Sucessfully" });
-  } catch (error) {
+    res.status(200).json({ msg: "All Users are Sucessfully Deleted" });
+  } 
+  catch (error) 
+  {
     res.status(500).json({ error: "Internal Server Error" });
   }
 });

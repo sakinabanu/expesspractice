@@ -31,7 +31,7 @@ const userSchema = new mongoose.Schema({
     maxlength: 500,
     required: true,
   },
-  createdAt: {
+  createAt: {
     type: Date,
     default: new Date(),
   },
